@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title>Pixel Review | {{page_title}} </title>
+
+<ul class="collapsible" data-collapsible="accordion">
+	{% for review in reviews %}
+	<li>
+		<div class="collapsible-header">
+			<div class="col s3">
+				<i class="material-icons">expand_more</i>
+				<a href="{{ url_for('delete_review', review_id=review._id) }}"
+					class="waves-effect waves-light btn btn_small">Delete</a>
+				<a href="{{ url_for('edit_review', review_id=review._id) }}"
+					class="waves-effect waves-light btn btn_small blue">Edit</a>
+			</div>
+			<div class="task_header col s9">
+				<strong>{{review.game_title}} - {{review.platform_name}}</strong> - {{review.hours_played}} hours
+				played
+			</div>
+		</div>
+		<div class="collapsible-body">
+			<span>
+                {{review.review_text}} 
+            </span>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+<a class="btn" href="{{ url_for('write_review') }}">Write Review!</a>
+
+{% endblock %}
