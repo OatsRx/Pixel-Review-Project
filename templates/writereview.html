@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Write Review</h3>
+<div class="row">
+	<!-- create url -->
+	{% for error in errors %}
+	<p>{{ error }}</p>
+	{% endfor %}
+	<!-- Materialize form-->
+	<form action="{{ url_for('insert_review') }}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons">gamepad</i>
+				<select id="games" name="game_title">
+                  <option value="" disabled selected>Choose game</option>
+                  {% for game in games %}
+                      <option value="{{game.game_title}}">{{game.game_title}}</option>
+                  {% endfor %}
+                </select>
+				<label></label>
+			</div>
+		</div>
+		<!-- select platform-->
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons">gamepad</i>
+				<select id="platform" name="platform_name">
+                  <option value="" disabled selected>Choose platform</option>
+                  {% for platform in platforms %}
+                      <option value="{{platform.platform_name}}">{{platform.platform_name}}</option>
+                  {% endfor %}
+                </select>
+				<label></label>
+			</div>
+		</div>
+
+		<!-- Hours played input -->
+		<div class="input-field col s12">
+			<i class="material-icons prefix">access_time</i>
+			<input id="hours_played" name="hours_played" type="number" maxlength="5000">
+			<label for="icon_prefix">Hours played (1-999)</label>
+		</div>
+		<!-- Review input -->
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">rate_review</i>
+				<textarea name="review_text" id="review_text" class="materialize-textarea" maxlength="1000"></textarea>
+				<label for="icon_telephone">Review</label>
+			</div>
+		</div>
+		<!-- Submit -->
+		<div class="row">
+			<button class="btn waves-effect waves-light" type="submit">Post Review
+                <i class="material-icons right">local_post_office</i>
+             </button>
+		</div>
+	</form>
+</div>
+
+{% endblock %}
