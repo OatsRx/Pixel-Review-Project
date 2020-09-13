@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Bootstrap callout template -->
+<header>
+	<div class="container">
+		<img style="height: 100%; width: 100%; object-fit: contain" class="fallguys" src="{{ url_for('static', filename='img/fgrace.PNG') }}" alt="" />
+		<div class="callout section-heading text-uppercase callout-text">REVIEW TOP GAMES THIS MONTH
+			<a class="btn justify-content-center" href="{{ url_for('write_review') }}">Write Review!</a>
+		</div>
+	</div>
+</header>
+<section>
+	<div class="container">
+		<div>
+			<h2 class="section-heading text-uppercase">Top Games</h2>
+			<h3 class="section-subheading text-muted">September 2020</h3>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-sm-6 d-flex ">
+				<div>
+					<a href="{{url_for('get_reviews', game_title='Fallguys')}}"><img src="{{ url_for('static', filename='img/fallguys.png') }}" alt="" /></a>
+						<div class="portfolio-caption">
+							<div class="portfolio-caption-heading">Fallguys</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div>
+					<a href="{{url_for('get_reviews', game_title='Resident Evil 3')}}"><img src="{{ url_for('static', filename='img/residentevil.png') }}" alt="" /></a>
+						<div class="portfolio-caption">
+							<div class="portfolio-caption-heading">Resident Evil 3</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div>
+					<a href="{{url_for('get_reviews', game_title='Ghost of Tsushima')}}"><img src="{{ url_for('static', filename='img/ghost.png') }}" alt="" /></a>
+						<div class="portfolio-caption">
+							<div class="portfolio-caption-heading">Ghost of Tsushima</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div>
+					<a href="{{url_for('get_reviews', game_title='Jedi Fallen Order')}}"><img src="{{ url_for('static', filename='img/fallenorder.png') }}" alt="" /></a>
+						<div class="portfolio-caption">
+							<div class="portfolio-caption-heading">Jedi: Fallen Order</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div>
+					<a href="{{url_for('get_reviews', game_title='Destroy all Humans')}}"><img src="{{ url_for('static', filename='img/destroy.png') }}" alt="" /></a>
+						<div class="portfolio-caption">
+							<div class="portfolio-caption-heading">Destroy all Humans</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div>
+					<a href="{{url_for('get_reviews', game_title='GTA V')}}"><img src="{{ url_for('static', filename='img/gtav.png') }}" alt="" /></a>
+						<div class="portfolio-caption">
+							<div class="portfolio-caption-heading">GTA V</div>
+						</div>
+				</div>
+			</div>
+		</div>
+</section>
+
+{% endblock %}
