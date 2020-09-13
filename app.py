@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, url_for, redirect, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import bcrypt
 if os.path.exists('env.py'):
     import env
 
@@ -16,6 +17,37 @@ mongo = PyMongo(app)
 @app.route('/')
 def home():
     return render_template('home.html', page_title='Home')
+
+
+#########LOGIN SYSTEM START#########
+# Register
+@app.route('/register')
+def register():
+    return render_template('register.html', page_title='Register')
+
+
+# Registered data pushed to mongo
+@app.route('/register_push', methods=['POST'])
+def register_push():
+
+    """ if the request method is POST we'll
+    search the database for existing users that match """
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name': request.form['username']})
+
+        """ if there is no matching user we can
+        then make a new user and hash their password """
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name': request.form['username'], 'password': hashpass})
+            session['username'] = request.form['username']
+            return redirect(url_for('logged_in'))
+
+        return render_template('userexists.html', page_title='User Error')
+
+    return render_template('loggedin.html')
+
 
 
 # Get reviews
