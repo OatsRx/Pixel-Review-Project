@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+        <p>Review deleted</p>
+
+        <p>Would you like to leave another review?</p>
+
+        <a class="btn" href="{{ url_for('write_review') }}">Write Review!</a>
+    </div>
+
+{% endblock %}

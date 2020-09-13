@@ -65,6 +65,20 @@ def update_review(review_id):
     })
     return redirect(url_for('home', review=review))
 
+
+# Deleting review
+@app.route('/delete_review/<review_id>')
+def delete_review(review_id):
+    mongo.db.reviews.remove({'_id': ObjectId(review_id)})
+    return redirect(url_for('delete_confirm'))
+
+
+# Delete confirmation
+@app.route('/delete_confirm')
+def delete_confirm():
+    return render_template('deleteconfirm.html', page_title='Deleted')
+
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
