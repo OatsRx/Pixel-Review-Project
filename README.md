@@ -34,6 +34,8 @@ Backend features consist of a basic login system has been started and allows use
 as of yet to end current session. This system uses bcrypt to hash the users password so no plain text is sent to the database.
 Post and Get methods are used to send and retrieve data from the html forms to the database.
 
+Demo login: USERNAME: Oats PASSWORD: pass
+
 ## Future Features
 
 ##### 1. This application needs validation/defensive design applied to the form entry fields in; /register, /login, /write_review and edit_review
