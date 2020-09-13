@@ -11,17 +11,17 @@ The UX for this app uses Bootstrap and Materialize for responsiveness and overal
 
 The database structure started with 3 collections and ended with a 4th being added for the login systems users
 
-##### 1. [games]()
+1. [games](https://github.com/OatsRx/Pixel-Review-Project/blob/master/Wireframes/Database%20Structure/games.PNG)
 
-##### 2. [platforms]()
+2. [platforms](https://github.com/OatsRx/Pixel-Review-Project/blob/master/Wireframes/Database%20Structure/platforms.PNG)
 
-##### 3. [reviews]()
+3. [reviews](https://github.com/OatsRx/Pixel-Review-Project/blob/master/Wireframes/Database%20Structure/reviews.PNG)
 
-##### 4. [users]()
+4. [users](https://github.com/OatsRx/Pixel-Review-Project/blob/master/Wireframes/Database%20Structure/users.PNG)
 
 ### Wireframes
 
-Wireframes can be found in the [root directory]() of the project
+Wireframes can be found in the [rootdirectory/wireframes](https://github.com/OatsRx/Pixel-Review-Project/tree/master/Wireframes/wireframes) of the project
 
 ## Features
 
@@ -84,11 +84,11 @@ if on local deployment and CTRL+left click IP address in terminal to open projec
 
 ##### Content
 
-Text for all existing reviews wask taken from [ign.com]()
+Text for all existing reviews wask taken from [ign.com](https://www.ign.com/uk)
 
 ##### Media 
 
-All pictures were taken from [g2a.com]()
+All pictures were taken from [g2a.com](https://www.g2a.com)
 
 ##### Media
 Special thanks to: 
