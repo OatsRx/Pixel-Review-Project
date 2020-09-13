@@ -25,6 +25,13 @@ def get_reviews(game_title):
     reviews=mongo.db.reviews.find({'game_title': game_title}))
 
 
+# Write review
+@app.route('/write_review')
+def write_review():
+    return render_template('writereview.html', games=mongo.db.games.find(),
+    platforms=mongo.db.platforms.find(), page_title='Write Review')
+
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
