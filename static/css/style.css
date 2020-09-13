@@ -9,6 +9,7 @@
 
 .nav-wrapper {
     background-color: #222222 !important;
+    text-transform: none;
 }
 
 .callout {

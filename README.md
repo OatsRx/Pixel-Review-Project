@@ -70,14 +70,14 @@ The application has been tested by myself to ensure that the core functions of t
 editing a review, deleting a review, logging in. There are slight overlaps of buttons on the write/edit task options on some mobile
 devices whch needs to be addressed. HTML, CSS and Python code have all been sent through validators.
 
-The main issue which was stated earlier in the features section is the validatin for the backend form data. Although there are some 
+The main issue which was stated earlier in the features section is the validation for the backend form data. Although there are some 
 validation techniques used in the html forms on the front end to ensure eg. integer is used, implementation of backend python validation
 is essential to ensure consistency of data sent to mongo. 
 
 ## Deployment
 
 Source code for this application was sent to Github during development and linked to Heroku through a master branch that automatically commits
-from GitHub. Through development the app was deploying through GitPod on Opera and requires installation of the requirements.txt. 
+from GitHub with environment variables being added manually to Heroku. Through development the app was deploying through GitPod on Opera and requires installation of the requirements.txt. 
 The config for this application is using an env.py file for the environment variable MONGO_URI in order to link to the database.
 To start the application in the GitPod IDE I used during develoment ensure requirements.txt have been installed and run the app.py file
 if on local deployment and CTRL+left click IP address in terminal to open project in new window. 
@@ -86,7 +86,7 @@ if on local deployment and CTRL+left click IP address in terminal to open projec
 
 ##### Content
 
-Text for all existing reviews wask taken from [ign.com](https://www.ign.com/uk)
+Text for all existing reviews was taken from [ign.com](https://www.ign.com/uk)
 
 ##### Media 
 
