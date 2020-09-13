@@ -73,6 +73,12 @@ def login_push():
     return 'Incorrct Username/Password'
 
 
+@app.route('/logged_in')
+def logged_in():
+    if 'username' in session:
+        return render_template('loggedin.html', page_title='Logged In')
+
+
 # Get reviews
 @app.route('/get_reviews/<game_title>')
 def get_reviews(game_title):
@@ -138,4 +144,4 @@ if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
