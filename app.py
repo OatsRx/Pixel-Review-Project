@@ -51,6 +51,20 @@ def edit_review(review_id):
     all_games=all_games, all_platforms=all_platforms, reviews=reviews, page_title='Edit Review')
 
 
+# Update edited review
+@app.route('/update_review/<review_id>', methods=['POST'])
+def update_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    reviews = mongo.db.reviews
+    reviews.update({"_id": ObjectId(review_id)},
+    {
+        'game_title': request.form.get('game_title'),
+        'platform_name': request.form.get('platform_name'),
+        'hours_played': request.form.get('hours_played'),
+        'review_text': request.form.get('review_text')
+    })
+    return redirect(url_for('home', review=review))
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
