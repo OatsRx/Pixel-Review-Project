@@ -32,6 +32,15 @@ def write_review():
     platforms=mongo.db.platforms.find(), page_title='Write Review')
 
 
+# Insert new review
+@app.route('/insert_review', methods=['POST'])
+def insert_review():
+    reviews = mongo.db.reviews
+    reviews.insert_one(request.form.to_dict())
+    return redirect(url_for('home'))
+
+
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
