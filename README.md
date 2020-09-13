@@ -76,7 +76,7 @@ is essential to ensure consistency of data sent to mongo.
 
 ## Deployment
 
-Source code for this application was sent to Github during development and linked to Heroku through a branch that automatically commits
+Source code for this application was sent to Github during development and linked to Heroku through a master branch that automatically commits
 from GitHub. Through development the app was deploying through GitPod on Opera and requires installation of the requirements.txt. 
 The config for this application is using an env.py file for the environment variable MONGO_URI in order to link to the database.
 To start the application in the GitPod IDE I used during develoment ensure requirements.txt have been installed and run the app.py file
