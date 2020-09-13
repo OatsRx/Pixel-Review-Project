@@ -40,6 +40,16 @@ def insert_review():
     return redirect(url_for('home'))
 
 
+# Edit review
+@app.route('/edit_review/<review_id>')
+def edit_review(review_id):
+    the_review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    all_games = mongo.db.games.find()
+    all_platforms = mongo.db.platforms.find()
+    reviews = mongo.db.reviews.find()
+    return render_template('editreview.html', review=the_review,
+    all_games=all_games, all_platforms=all_platforms, reviews=reviews, page_title='Edit Review')
+
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'

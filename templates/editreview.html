@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Edit Review</h3>
+<p>{{the_review}}</p>
+<div class="row">
+	<!-- create url -->
+	<form action="{{ url_for('update_review', review_id=review._id) }}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons">gamepad</i>
+				<select id="games" name="game_title">
+			                  <option value="" disabled>Choose game</option>
+			                  {% for game in all_games %}
+			                        {% if game.game_title == review.game_title %}
+			                      <option value="{{game.game_title}}" selected>{{game.game_title}}</option>
+			                         {% else %}
+			                         <option value="{{game.game_title}}">{{game.game_title}}</option>
+			                        {% endif %}
+			                  {% endfor %}
+			                </select>
+				<label></label>
+			</div>
+		</div>
+		<!-- select platform-->
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons">gamepad</i>
+				<select id="platform" name="platform_name">
+			                  <option value="" disabled selected>Choose platform</option>
+			                  {% for platform in all_platforms %}
+			                        {% if platform.platform_name == review.platform_name %}
+			                      <option value="{{platform.platform_name}}" selected>{{platform.platform_name}}</option>
+			                        {% else %}
+			                      <option value="{{platform.platform_name}}">{{platform.platform_name}}</option>
+                                  {% endif %}
+			                  {% endfor %}
+			                </select>
+				<label></label>
+			</div>
+		</div>
+
+		<!-- Hours played input -->
+		<div class="input-field col s12">
+			<i class="material-icons prefix">access_time</i>            	
+				            <textarea name="hours_payed" id="hours_payed" maxlength="4" class="materialize-textarea">{{review.hours_played}}</textarea>					   
+			<label for="icon_prefix">Hours played</label>
+		</div>
+		<!-- Review input -->
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">rate_review</i>                                            
+				            <textarea name="review_text" id="review_text" maxlength="1000"  type="number" class="materialize-textarea">{{review.review_text}}</textarea>                                                                      
+				<label for="icon_telephone">Review</label>
+			</div>
+		</div>
+		<!-- Submit -->
+		<div class="row">
+			<button class="btn waves-effect waves-light edit_submit" type="submit">Edit Review
+		                <i class="material-icons right">local_post_office</i>
+		             </button>
+		</div>
+		</form>
+		</div>
+
+{% endblock %}
